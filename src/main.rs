@@ -33,7 +33,7 @@ fn main() {
                 std::process::exit(1);
             }
 
-            let re = Regex::new("alias \\x22trashtalk\\d+\\x22\\s+\\x22say\\s+(.+);\\s+alias trashtalker \\x22trashtalk\\d+\\x22").unwrap();
+            let re = Regex::new("say\\s+(.+);\\s+alias").unwrap();
             let text = std::fs::read_to_string(config.cfg_path.clone().unwrap()).unwrap();
             let mut trash_talks = Vec::new();
             for cap in re.captures_iter(&text) {
@@ -49,7 +49,7 @@ fn main() {
                 } else {
                     i + 1
                 };
-                string_builder.push_str(&format!("alias \"trashtalk{}\" \"{}; alias trashtalker \"trashtalk{}\"\"\n", i, trash_talk, next));
+                string_builder.push_str(&format!("alias \"say trashtalk{}\" \"say {}; alias trashtalker \"trashtalk{}\"\"\n", i, trash_talk, next));
             }
 
             string_builder.push_str("alias \"trashtalker\" \"trashtalk0\";\n");
