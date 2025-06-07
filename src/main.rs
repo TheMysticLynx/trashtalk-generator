@@ -49,7 +49,7 @@ fn main() {
                 } else {
                     i + 1
                 };
-                string_builder.push_str(&format!("alias \"say trashtalk{}\" \"say {}; alias trashtalker \"trashtalk{}\"\"\n", i, trash_talk, next));
+                string_builder.push_str(&format!("alias \"trashtalk{}\" \"say {}; alias trashtalker \"trashtalk{}\"\n", i, trash_talk, next));
             }
 
             string_builder.push_str("alias \"trashtalker\" \"trashtalk0\";\n");
