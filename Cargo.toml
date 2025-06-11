@@ -12,3 +12,4 @@ regex = "1.10.6"
 serde = { version = "1.0.210", features = ["derive"] }
 shuffle = "0.1.7"
 toml = "0.8.19"
+uuid = { version = "1.17.0", features = ["v4"] }
